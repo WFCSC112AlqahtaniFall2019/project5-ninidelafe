@@ -9,8 +9,24 @@ const string ranks[] = {"Ace","2","3","4","5","6","7","8","9","10","Jack","King"
 const string suits[] = {"Clubs","Diamonds","Hearts","Spades"};
 
 class Card {
+public:
+    //default constructor
+    Card();
+    //alternate constructor
+    Card(int rank, int suit);
+    //overloaded comparision operator that allows for comparison of ranks and suits
+    bool operator<(Card c);
+    //returns a string value of the card name for example "Ace of Clubs"
+    string cardValue();
+
+private:
+    //declares private variables
+    int rankNum;
+    int suitType;
+    string value;
 
 };
+
 
 
 #endif //BLINDMANSBLUFF_CARD_H
