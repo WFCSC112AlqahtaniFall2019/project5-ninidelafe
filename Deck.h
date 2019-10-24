@@ -29,6 +29,7 @@ public:
 
 
 private:
+    //declares private variables to be used within Deck.pp but not the main
     Card* cards;
     int arraySize;
     int cardsLeft;

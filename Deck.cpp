@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-//default constructor
+//default constructor- assigns all the private variables with the correct values and creates an array with the correct size
 Deck::Deck() {
     //cout<<"Default Constructor"<<endl;
     arraySize = 52;
@@ -12,7 +12,7 @@ Deck::Deck() {
     currentCard=0;
 }
 
-//Copy constructor
+//Copy constructor- creates a copy of the private variables and the array
 Deck :: Deck (const Deck& C ){
     //cout << "Copy Constructor called." << endl;
     arraySize = C.arraySize;
@@ -25,13 +25,13 @@ Deck :: Deck (const Deck& C ){
 
 }
 
-//destructor
+//destructor- deletes the created arrays
 Deck::~Deck() {
     //cout<<"Destructor called"<<endl;
     delete [] cards;
 }
 
-//Copy assignment operator;
+//Copy assignment operator- allows for the equal sign to be used as an operator
 Deck& Deck::operator= (const Deck& D) {
     //cout<<"assignment operator called"<<endl;
     Deck temp(D); // copy constructor temp
@@ -68,16 +68,8 @@ void Deck::shuffleCards() {
         cards[random2] = temp;
     }
 }
-    /*
-    while (shuffleAmount > 0) {
-        for (int i = 0; i < cardsLeft; i++) {
-            swap(cards[i], cards[i + 1]);
-        }
-        shuffleAmount--;
-    }
-}*/
 
-//deal/ remove a card from the deck then decreases the cardsLeft while also giving the value of the card
+//deals/ removes a card from the deck then decreases the cardsLeft while also giving the value of the card
 Card Deck::dealCard() {
     //cout<<"deal cards called"<<endl;
     if (currentCard < arraySize) {
@@ -88,7 +80,7 @@ Card Deck::dealCard() {
     }
 }
 
-// add cad to the deck or return false if no physical space in deck
+// add card to the deck or return false if no physical space in deck while returning an error message
 bool Deck::addCard(Card v){
    //cout<<"add card called"<<endl;
     if (cardsLeft == 0){

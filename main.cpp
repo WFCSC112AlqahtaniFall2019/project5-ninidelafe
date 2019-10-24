@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-    //declares variables needed for the program
+    //declares variables needed for the program to run
     bool play;
     bool invalid;
     bool guessedHigher;
@@ -21,7 +21,7 @@ int main() {
     int nLoss = 0;
     int nTie = 0;
     int count =0;
-    srand(time(NULL));
+    srand(time(NULL));// seeds the random number generator
 
     //Welcomes the user to the game and gives them instructions and tells them the rankings so that they understand how the game works
     cout << "Welcome to Blind Man's Bluff!" << endl << endl;
@@ -31,21 +31,21 @@ int main() {
     cout << "order: Clubs, Diamonds, Hearts, Spades. You can play up to 26 times (or stop at any time) and your record will be shown at the end."<<endl<<endl;
 
     Deck D1; //creates the deck
-    Deck discard; //creates the discard pile
+    Deck discard; //creates the discard pile/deck
     D1.populateDeck();//populates the deck
     D1.shuffleCards();//shuffles the deck
 
     //while loop- allows the user to continue playing if they choose to and insures they do not play more than 26 times
     play = true;
     while(play && count<26) {
-        // assign cards to computer and user
+        // deals/assigns cards to computer and user
         compValue = D1.dealCard();
         userValue = D1.dealCard();
         //adds cards to the discard pile so they will not be chosen again
         discard.addCard(compValue);
         discard.addCard(userValue);
 
-        // prints out the computers card
+        // prints out the computers card for the user to see
         cout << "Computer's card: " << compValue.cardValue() << endl;
         invalid = true;
         //while loop- asks the user if they think their own card is higher or lower and will repeat until a valid response of

@@ -20,7 +20,7 @@ public:
     string cardValue();
 
 private:
-    //declares private variables
+    //declares private variables to be used within card.pp but not the main
     int rankNum;
     int suitType;
     string value;
